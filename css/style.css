@@ -1,0 +1,26 @@
+h4{
+    font-size:30;
+    font-weight:bold;
+}
+
+#forma .form-control-feedback {
+    margin-left: 5%;
+}
+#forma .selectContainer .form-control-feedback {
+    right: 5%;
+}
+
+.row{
+    margin-left:5%;
+    margin-right:5%;
+}
+
+.form-group{
+    margin-left:5%;
+    margin-right:5%;
+}
+
+#enviar{
+    margin-left:11%;
+}
+

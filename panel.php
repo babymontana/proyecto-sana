@@ -37,11 +37,15 @@ if($valido != "1"){
             </div>
         </header>
         
+        <ol class="breadcrumb">
+          <li class="active"><a href="panel.php">Home</a></li>
+    </ol>
+        
         <div  id="dashboard" class="col-xs-12 col-sm-12 col-md-12 ">
           
 		  <h1 class="page-header">Panel</h1>
 
-          <div class="row placeholders">
+          <div class="row placeholders panel">
             <div class="col-xs-6 col-sm-6 col-md-2 placeholder text-center">
                <a href="agregarpaciente.php"><img src="images/agregar.png"class="center-block img-responsive img-circle" alt="Generic placeholder thumbnail" ></a>
               <h4>Agregar Paciente</h4>
@@ -50,7 +54,7 @@ if($valido != "1"){
             
             <div class="col-xs-6 col-sm-6 col-md-2 placeholder text-center">
                <a href="editarpaciente.php"><img src="images/editar.png"class="center-block img-responsive img-circle" alt="Generic placeholder thumbnail" ></a>
-              <h4>Editar Pacinte</h4>
+              <h4>Editar Paciente</h4>
               <span class="text-muted">Modificación de datos de pacientes</span>
             </div>
             

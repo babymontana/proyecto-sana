@@ -12,7 +12,7 @@ class login{
         $size = sizeof($response);
         $this->valido=$size;
         if($size==1){
-        $this->id=$response[0]['id'];
+        $this->id=$response[0]['clave_profesional'];
         $this->nombre=$response[0]['nombre'];
         }
         return "{\"response\":\"".$size."\",\"info\":".json_encode($response[0])."}";

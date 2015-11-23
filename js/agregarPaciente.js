@@ -69,5 +69,61 @@ $(document).ready(function(){
            $("#mensaje").hide();
    });
    
+   $("#nombre").keyup(function(){
+       if(this.value.length>15){
+           this.value=this.value.substr(0,15);
+       }
+   });
+   
+    $("#email").keyup(function(){
+       if(this.value.length>40){
+           this.value=this.value.substr(0,40);
+       }
+   });
+   
+   $("#apellido_P").keydown(function(){
+       if(this.value.length>15){
+           this.value=this.value.substr(0,15);
+       }
+   });
+   
+   $("#apellido_M").keyup(function(){
+       if(this.value.length>15){
+           this.value=this.value.substr(0,15);
+       }
+   });
+   
+    $("#email").keyup(function(){
+       if(this.value.length>50){
+           this.value=this.value.substr(0,50);
+       }
+   });
+   
+    $("#fecha_nacimiento").keyup(function(){
+       if(this.value.length>0){
+           this.value=this.value.substr(0,0);
+       }
+   });
+   
+   $("#telefono").keyup(function() {
+       if(this.value.match(/[^0-9 ]/g)) {
+           this.value = this.value.replace(/[^0-9 ]/g, '');
+       }
+       if(this.value.length>10){
+           this.value=this.value.substr(0,10);
+       }
+   });
+   
+   $("#celular").keyup(function() {
+       if(this.value.match(/[^0-9 ]/g)) {
+           this.value = this.value.replace(/[^0-9 ]/g, '');
+       }
+       if(this.value.length>10){
+           this.value=this.value.substr(0,10);
+       }
+   });
+   
+   
+   
     
 });

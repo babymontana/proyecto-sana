@@ -32,16 +32,19 @@ if($valido != "1"){
                 </div>
                 <nav class="collapse navbar-collapse navHeaderCollapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="panel.php">Regresar</a></li>
+                        
 
                     </ul>
                 </nav>         
             </div>
             
-            <div class="container">
-                
-            </div>
         </header>
+        
+        <ol class="breadcrumb">
+          <li><a href="panel.php">Home</a></li>
+          <li class="active"><a href="#">Agregar Paciente</a></li>
+         
+        </ol>
          <h1 class="page-header" style="padding-left:30px;">Agregar Paciente</h1>
         <p style="display:none;" id="error" class="bg-danger">Porfavor llene los campos obligatorios *</p>
 

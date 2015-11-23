@@ -7,6 +7,12 @@ $(document).ready(function(){
    
    
    $("#genero").click(function(){
+       $("#actual").text("Estadísticas - Edad/Género");
+       $("#tipo").text("Gráfica de Género");
+       $("#gen").addClass("active");
+       $("#con").removeClass("active");
+       $("#reg").removeClass("active");
+
        $("#metricas").show().html(" <h3> Promedio de edad</h3><hr><ul class='nav nav-stacked'><li><a class='sexo' id='edadHombre' href='#'>Hombre</a></li><li><a class='sexo' id='edadMujer' href='#'>Mujer</a></li><li><a  class='sexo' id='edadAmbos' href='#'>Ambos</a></li> </ul><h3> Género</h3><hr><ul class='nav nav-stacked'><li><a id='comparativaGenero' href='#'>Comparativa</a></li></ul><h3> Leyenda</h3><hr><ul id='leyenda' class='list-group'><li class='list-group-item'><canvas width='10' height='10' style='background: #F7464A;'></canvas> Hombre</li><li class='list-group-item'><canvas width='10' height='10' style='background:#46BFBD;'></canvas> Mujer</li></ul>");
        $("#titleGrafica").html("Gráfica de Género");
        genero();
@@ -14,14 +20,55 @@ $(document).ready(function(){
    });
    
    $("#consultas").click(function(){
+       $("#actual").text("Estadísticas - Consultas");
+       $("#tipo").text("2015-2014");
+       $("#con").addClass("active");
+       $("#gen").removeClass("active");
+       $("#reg").removeClass("active");
+
        $("#metricas").show().html("<h3> Años</h3><hr><ul class='nav nav-stacked'><li><a  class='edad' id='2015-2014' href='#'>2015-2014</a></li><li><a class='edad' id='2014-2013' href='#'>2014-2013</a></li><li ><a class='edad'  id='2013-2012' href='#'>2013-2012</a></li> <li><a class='edad'  id='2012-2011' href='#'>2012-2011</a></li> <li><a class='edad'  id='2011-2010' href='#'>2011-2010</a></li> </ul><h3> Leyenda</h3><hr><ul id='leyenda' class='list-group'><li class='list-group-item'><canvas width='10' height='10' style='background: #dcdcdc;'></canvas> 2015</li><li class='list-group-item'><canvas width='10' height='10' style='background:#97bbcd;'></canvas> 2014</li></ul>");
        $("#titleGrafica").html("Consultas 2015-2014");
        consultas('2015','2014');
+        $(".edad").click(function() {
+                          var rango = $(this).attr("id");
+                          $("#titleGrafica").html("Consultas "+rango);
+                          switch (rango){
+                              case "2015-2014":
+                                  consultas("2015","2014");
+                                  $("#tipo").text("2015-2014");
+                              break;
+                              case "2014-2013":
+                                  consultas("2014","2013");
+                                  $("#tipo").text("2014-2013");
+                              break;
+                              case "2013-2012":
+                                  consultas("2013","2012");
+                                  $("#tipo").text("2013-2012");
+                              break;
+                              case "2012-2011":
+                                  consultas("2012","2011");
+                                  $("#tipo").text("2012-2011");
+                              break;
+                              case "2011-2010":
+                                  consultas("2011","2010");
+                                  $("#tipo").text("2011-2010");
+                              break;
+                          }
+                          
+                          
+                          
+                     });
        
        
    });
    
    $("#region").click(function(){
+       $("#actual").text("Estadísticas - Región");
+       $("#tipo").text("Pacientes por Región");
+       $("#reg").addClass("active");
+       $("#con").removeClass("active");
+       $("#gen").removeClass("active");
+
        $("#metricas").hide().html("");
        $("#titleGrafica").html("Numero de pacientes por Región");
        regiones();
@@ -62,12 +109,14 @@ $.post("recursos/services/genero.php",
                     grafica = new Chart(ctx).Pie(data);
                    
                      $("#edadHombre").click(function() {
+                         $("#tipo").text("Promedio de Edad Hombre");
                        $("#titleGrafica").html("Promedio de edad Hombres");
                        $("#leyenda").html("<li class='list-group-item'><canvas width='10' height='10' style='background: #3333FF;'></canvas> 60 a 69</li><li class='list-group-item'><canvas width='10' height='10' style='background:#00ccFF;'></canvas> 70-79</li><li class='list-group-item'><canvas width='10' height='10' style='background:#cc0000;'></canvas> 80 ó más</li>");
                        edad('H');
                    });
                    
                     $("#edadMujer").click(function() {
+                        $("#tipo").text("Promedio de Edad Mujer");
                        $("#titleGrafica").html("Promedio de edad Mujeres");
                        $("#leyenda").html("<li class='list-group-item'><canvas width='10' height='10' style='background: #6600cc;'></canvas> 60 a 69</li><li class='list-group-item'><canvas width='10' height='10' style='background:#FF007F;'></canvas> 70-79</li><li class='list-group-item'><canvas width='10' height='10' style='background:#99CCFF;'></canvas> 80 ó más</li>");
 
@@ -75,6 +124,7 @@ $.post("recursos/services/genero.php",
                    });
                    
                     $("#edadAmbos").click(function() {
+                        $("#tipo").text("Promedio de Edad Ambos");
                        $("#titleGrafica").html("Promedio de edad ");
                        $("#leyenda").html("<li class='list-group-item'><canvas width='10' height='10' style='background: #F7464A;'></canvas> 60 a 69</li><li class='list-group-item'><canvas width='10' height='10' style='background:#46BFBD;'></canvas> 70-79</li><li class='list-group-item'><canvas width='10' height='10' style='background:#FDB45C;'></canvas> 80 ó más</li>");
 
@@ -82,6 +132,7 @@ $.post("recursos/services/genero.php",
                    });
                    
                    $("#comparativaGenero").click(function(){
+                      $("#tipo").text("Gráfica de Género");
        $("#metricas").show().html(" <h3> Promedio de edad</h3><hr><ul class='nav nav-stacked'><li><a class='sexo' id='edadHombre' href='#'>Hombre</a></li><li><a class='sexo' id='edadMujer' href='#'>Mujer</a></li><li><a  class='sexo' id='edadAmbos' href='#'>Ambos</a></li> </ul><h3> Género</h3><hr><ul class='nav nav-stacked'><li><a id='comparativaGenero' href='#'>Comparativa</a></li></ul><h3> Leyenda</h3><hr><ul id='leyenda' class='list-group'><li class='list-group-item'><canvas width='10' height='10' style='background: #F7464A;'></canvas> Hombre</li><li class='list-group-item'><canvas width='10' height='10' style='background:#46BFBD;'></canvas> Mujer</li></ul>");
        $("#titleGrafica").html("Gráfica de Género");
        genero();
@@ -155,12 +206,8 @@ $.post("recursos/services/genero.php",
 				});
        
    }
-   
-
-   
    function regiones(){
        $.post("recursos/services/regiones.php",
-				
 				function(res){
 
 					var datos = JSON.parse(res);
@@ -186,16 +233,11 @@ $.post("recursos/services/genero.php",
                                 }
                             ]
                         };
-                                                if(grafica != null){
+                    if(grafica != null){
                             grafica.destroy();
                         }                   
                 	var ctx = $("#grafica").get(0).getContext("2d");
                     grafica = new Chart(ctx).Bar(data);
-                   
-                    
-                   
-                 
-					 
 				
 				});
              }
@@ -203,30 +245,7 @@ $.post("recursos/services/genero.php",
              
     function consultas(anioA, anioB){
         
-         $(".edad").click(function() {
-                          var rango = $(this).attr("id");
-                          $("#titleGrafica").html("Consultas "+rango);
-                          switch (rango){
-                              case "2015-2014":
-                                  consultas("2015","2014");
-                              break;
-                              case "2014-2013":
-                                  consultas("2014","2013");
-                              break;
-                              case "2013-2012":
-                                  consultas("2013","2012");
-                              break;
-                              case "2012-2011":
-                                  consultas("2012","2011");
-                              break;
-                              case "2011-2010":
-                                  consultas("2011","2010");
-                              break;
-                          }
-                          
-                          
-                          
-                     });
+        
         $("#leyenda").html("<li class='list-group-item'><canvas width='10' height='10' style='background: #dcdcdc;'></canvas> "+anioA+"</li><li class='list-group-item'><canvas width='10' height='10' style='background:#97bbcd;'></canvas> "+anioB+"</li>");            
         
         $.post("recursos/services/graficaConsultas.php",
@@ -252,7 +271,7 @@ $.post("recursos/services/genero.php",
                     labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio","Agosto","Semptiembre","Octubre","Noviembre","Diciembre"],
                     datasets: [
                         {
-                            label: "My First dataset",
+                            label: anioA,
                             fillColor: "rgba(220,220,220,0.2)",
                             strokeColor: "rgba(220,220,220,1)",
                             pointColor: "rgba(220,220,220,1)",
@@ -262,7 +281,7 @@ $.post("recursos/services/genero.php",
                             data: Consultas1
                         },
                         {
-                            label: "My Second dataset",
+                            label: anioB,
                             fillColor: "rgba(151,187,205,0.2)",
                             strokeColor: "rgba(151,187,205,1)",
                             pointColor: "rgba(151,187,205,1)",
@@ -273,17 +292,12 @@ $.post("recursos/services/genero.php",
                         }
                     ]
                 };
-				
-                                
                         if(grafica != null){
                             grafica.destroy();
                         }                   
                 	var ctx = $("#grafica").get(0).getContext("2d");
                     grafica = new Chart(ctx).Line(data);
-                   
-                 
-					 
-				
+
 				});
         
     }

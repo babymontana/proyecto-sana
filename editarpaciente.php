@@ -32,7 +32,7 @@ if($valido != "1"){
                 </div>
                 <nav class="collapse navbar-collapse navHeaderCollapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="panel.php">Regresar</a></li>
+                        
 
                     </ul>
                 </nav>         
@@ -42,23 +42,30 @@ if($valido != "1"){
                 
             </div>
         </header>
+        
+        <ol class="breadcrumb">
+          <li><a href="panel.php">Home</a></li>
+          <li class="active"><a href="#">Editar Paciente</a></li>
+         
+        </ol>
+        
          <h1 class="page-header" style="padding-left:30px;">Editar Paciente</h1>
         <p style="display:none;" id="error" class="bg-danger">Porfavor llene los campos obligatorios *</p>
 
         
             
             <div class="form-group">
-                <p>* campos obligatorios</p>
                 <div class="row">
                     <div class="col-xs-12">
-                        <label class="control-label">Clave del paciente *</label>
-                        <input placeholder="Escriba la clave del paciente" type="text" class="form-control in" name="clave_paciente" id="clave_paciente"/>
+                        <label class="control-label">Busqueda</label>
+                        <input placeholder="Clave / Nombre / Apellidos" type="text" class="form-control in" name="busqueda" id="busqueda"/>
                     </div>
                     <p id="mensaje" style="color:red; display:none;">No se encontro ninguna clave que coincida</p>
                 </div>
             </div>
             <form id="forma">
             <div class="form-group">
+                 <p>Clave: <span id="clave_label"></span><br><br
                 <p>Nombre: <span id="nombre"></span>
             <br><br>Apellidos: <span id="apellidos"></span></p>
             <input type="text" name="PK_paciente" id="PK_paciente" style="display:none;"/>

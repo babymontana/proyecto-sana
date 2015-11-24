@@ -6,7 +6,7 @@ class loginData{
     $conect = new conexion();
     $conexion = $conect->conectar();
     
-    $rs = $conexion->query( "SELECT `PK_usuario`,`clave`,`nombre` FROM `Usuarios` WHERE `clave`='$clave' AND `password`='$password'");
+    $rs = $conexion->query( "SELECT `clave_profesional`,`clave`,`nombre` FROM `Usuarios` WHERE `clave`='$clave' AND `password`='$password'");
     if($fila = $rs->fetch_assoc()){
         $result[]=$fila;
     }

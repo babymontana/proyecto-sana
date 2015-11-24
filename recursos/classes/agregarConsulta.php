@@ -5,7 +5,7 @@ class agregarConsulta{
         
           $flag = true;
         for ($i=0; $i<sizeof($datos);$i++){
-        
+               echo $datos[$i]."==>";
                 if(!isset($datos[$i])){
                 $flag = false;
             }
